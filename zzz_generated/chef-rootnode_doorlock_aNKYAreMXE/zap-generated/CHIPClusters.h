@@ -30,32 +30,25 @@
 namespace chip {
 namespace Controller {
 
-class DLL_EXPORT ScenesCluster : public ClusterBase
-{
-public:
-    ScenesCluster(Messaging::ExchangeManager & exchangeManager, const SessionHandle & session, EndpointId endpoint) :
-        ClusterBase(exchangeManager, session, app::Clusters::Scenes::Id, endpoint)
-    {}
-    ~ScenesCluster() {}
-};
-
 class DLL_EXPORT BindingCluster : public ClusterBase
 {
 public:
-    BindingCluster(Messaging::ExchangeManager & exchangeManager, const SessionHandle & session, EndpointId endpoint) :
-        ClusterBase(exchangeManager, session, app::Clusters::Binding::Id, endpoint)
-    {}
+    BindingCluster() : ClusterBase(app::Clusters::Binding::Id) {}
     ~BindingCluster() {}
 };
 
 class DLL_EXPORT OtaSoftwareUpdateProviderCluster : public ClusterBase
 {
 public:
-    OtaSoftwareUpdateProviderCluster(Messaging::ExchangeManager & exchangeManager, const SessionHandle & session,
-                                     EndpointId endpoint) :
-        ClusterBase(exchangeManager, session, app::Clusters::OtaSoftwareUpdateProvider::Id, endpoint)
-    {}
+    OtaSoftwareUpdateProviderCluster() : ClusterBase(app::Clusters::OtaSoftwareUpdateProvider::Id) {}
     ~OtaSoftwareUpdateProviderCluster() {}
+};
+
+class DLL_EXPORT ScenesCluster : public ClusterBase
+{
+public:
+    ScenesCluster() : ClusterBase(app::Clusters::Scenes::Id) {}
+    ~ScenesCluster() {}
 };
 
 } // namespace Controller
